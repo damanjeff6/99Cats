@@ -1,0 +1,24 @@
+<% pronoun = (@cat.sex == 'F' ? 'she' : 'he') %>
+<p> <%= @cat.name %> is <%= @cat.age %> years old. <%= pronoun.capitalize %> is very gentle and caring. <%= pronoun.capitalize %> was born on <%= @cat.birth_date %>, and is an Aquarius. <%= pronoun.capitalize %>'s a great shade of <%= @cat.color.downcase %>.</p>
+
+<table border=1 style="text-align: center">
+	<tr>
+		<th>Name</th>
+		<th>Age</th>
+		<th>Birth date</th>
+		<th>Color</th>
+		<th>Sex</th>
+	</tr>
+
+	<tr>
+		<td><%= @cat.name %></td>
+		<td><%= @cat.age %></td>
+		<td><%= @cat.birth_date %></td>
+		<td><%= @cat.color.capitalize %></td>
+		<td><%= @cat.sex %></td>
+	</tr>
+</table>
+<br>
+<%= link_to 'Update cat information', edit_cat_url(@cat)%>
+<br>
+<%= link_to 'Go back to all cats', cats_url%>
