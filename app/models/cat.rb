@@ -19,6 +19,7 @@ class Cat < ActiveRecord::Base
     :sex,
     :presence => true
   )
+  has_many(:cat_rental_requests, :dependent => :destroy)
 
   validates :age, :numericality => true
   validates :sex, :inclusion => { :in => SEXES,

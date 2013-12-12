@@ -15,25 +15,4 @@ ActiveRecord::Base.transaction do
   Cat.create!(name: "Cheshire", age: 100, birth_date: 50.years.ago,
               color: 'BLACK', sex: 'M')
 
-
-  # :age,
-  # :birth_date,
-  # :color,
-  # :name,
-  # :sex
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 end
