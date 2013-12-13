@@ -1,7 +1,16 @@
 <h1> Cats: </h1>
+<% if current_user %>
+<%= button_to "Log out", session_url, :method => :delete %>
+<% end %>
+	<% unless flash[:messages].nil?%>
+		<% flash[:messages].each do |message| %>
+			<%= message %>
+		<% end %>
+	<% end %>
+<br>
 <ul>
 	<% @cats.each do |cat| %>
-	<li> <%= link_to cat.name, cat_url(cat) %> </li>
+	<li> <%= link_to cat.name, cat_url(cat) %> (<%=cat.user.user_name.capitalize%>'s cat) </li>
 	<% end %>
 </ul>
 <%= link_to "Add a new cat", new_cat_url %>

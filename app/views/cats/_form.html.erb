@@ -8,6 +8,10 @@
 
 <form action="<%= @cat.persisted? ? cat_url(@cat) : cats_url%>" method="POST">
 
+  <input type="hidden"
+         name="authenticity_token"
+         value="<%= form_authenticity_token %>">
+
 	<% if @cat.persisted? %>
 		<input type="hidden" name="_method" value="PUT">
 	<% end %>

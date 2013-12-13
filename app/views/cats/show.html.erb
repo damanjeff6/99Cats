@@ -22,3 +22,10 @@
 <%= link_to 'Update cat information', edit_cat_url(@cat)%>
 <br>
 <%= link_to 'Go back to all cats', cats_url%>
+<br>
+<br>
+<% unless flash[:errors].nil? %>
+	<% flash[:errors].each do |error| %>
+		<span> <%= error %> </span>
+	<% end %>
+<% end %>

@@ -8,7 +8,8 @@ class Cat < ActiveRecord::Base
     :birth_date,
     :color,
     :name,
-    :sex
+    :sex,
+    :user_id
   )
 
   validates(
@@ -17,9 +18,11 @@ class Cat < ActiveRecord::Base
     :color,
     :name,
     :sex,
+    :user_id,
     :presence => true
   )
   has_many(:cat_rental_requests, :dependent => :destroy)
+  belongs_to :user
 
   validates :age, :numericality => true
   validates :sex, :inclusion => { :in => SEXES,

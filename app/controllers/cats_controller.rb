@@ -1,4 +1,6 @@
 class CatsController < ApplicationController
+  before_filter :require_current_user
+  before_filter :require_user_to_be_owner, :only => [ :edit, :update ]
 
   def index
     @cats = Cat.all
@@ -14,6 +16,7 @@ class CatsController < ApplicationController
   end
 
   def create
+    params[:cat][:user_id] = current_user.id
     @cat = Cat.new(params[:cat])
 
     if @cat.save
